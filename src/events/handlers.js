@@ -38,35 +38,27 @@ export default {
 	--------------------------------------------------------------------------*/
 	updateTime: function(){
 		/*
-			If the current song is not live, then
-			we can update the time information. Otherwise the
-			current time updates wouldn't mean much since the time
-			is infinite.
+			Compute the current time
 		*/
-		if( !config.active_metadata.live ){
-			/*
-				Compute the current time
-			*/
-			var currentTime = AmplitudeEventHelpers.computeCurrentTimes();
+		var currentTime = AmplitudeEventHelpers.computeCurrentTimes();
 
-			/*
-				Compute the song completion percentage
-			*/
-			var songCompletionPercentage = AmplitudeEventHelpers.computeSongCompletionPercentage();
+		/*
+			Compute the song completion percentage
+		*/
+		var songCompletionPercentage = AmplitudeEventHelpers.computeSongCompletionPercentage();
 
-			/*
-				Computes the song duration
-			*/
-			var songDuration = AmplitudeEventHelpers.computeSongDuration();
+		/*
+			Computes the song duration
+		*/
+		var songDuration = AmplitudeEventHelpers.computeSongDuration();
 
-			/*
-				Sync the current time elements with the current
-				location of the song and the song duration elements with
-				the duration of the song.
-			*/
-			AmplitudeVisualSync.syncCurrentTime( currentTime, songCompletionPercentage );
-			AmplitudeVisualSync.syncSongDuration( songDuration );
-		}
+		/*
+			Sync the current time elements with the current
+			location of the song and the song duration elements with
+			the duration of the song.
+		*/
+		AmplitudeVisualSync.syncCurrentTime( currentTime, songCompletionPercentage );
+		AmplitudeVisualSync.syncSongDuration( songDuration );
 	},
 
 	/*--------------------------------------------------------------------------

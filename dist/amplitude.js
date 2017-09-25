@@ -3929,35 +3929,27 @@ exports.default = {
  --------------------------------------------------------------------------*/
 	updateTime: function updateTime() {
 		/*
-  	If the current song is not live, then
-  	we can update the time information. Otherwise the
-  	current time updates wouldn't mean much since the time
-  	is infinite.
+  	Compute the current time
   */
-		if (!_config2.default.active_metadata.live) {
-			/*
-   	Compute the current time
-   */
-			var currentTime = _helpers2.default.computeCurrentTimes();
+		var currentTime = _helpers2.default.computeCurrentTimes();
 
-			/*
-   	Compute the song completion percentage
-   */
-			var songCompletionPercentage = _helpers2.default.computeSongCompletionPercentage();
+		/*
+  	Compute the song completion percentage
+  */
+		var songCompletionPercentage = _helpers2.default.computeSongCompletionPercentage();
 
-			/*
-   	Computes the song duration
-   */
-			var songDuration = _helpers2.default.computeSongDuration();
+		/*
+  	Computes the song duration
+  */
+		var songDuration = _helpers2.default.computeSongDuration();
 
-			/*
-   	Sync the current time elements with the current
-   	location of the song and the song duration elements with
-   	the duration of the song.
-   */
-			_visual2.default.syncCurrentTime(currentTime, songCompletionPercentage);
-			_visual2.default.syncSongDuration(songDuration);
-		}
+		/*
+  	Sync the current time elements with the current
+  	location of the song and the song duration elements with
+  	the duration of the song.
+  */
+		_visual2.default.syncCurrentTime(currentTime, songCompletionPercentage);
+		_visual2.default.syncSongDuration(songDuration);
 	},
 
 	/*--------------------------------------------------------------------------
