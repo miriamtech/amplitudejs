@@ -156,6 +156,9 @@ var AmplitudeEventHelpers = (function() {
 		Computes the song completion percentage.
 	--------------------------------------------------------------------------*/
 	function computeSongCompletionPercentage(){
+		if (config.active_song.duration === Infinity) {
+			return 0;
+		}
 		return ( config.active_song.currentTime / config.active_song.duration ) * 100;
 	}
 
