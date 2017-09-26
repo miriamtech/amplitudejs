@@ -77,7 +77,7 @@ var AmplitudeHelpers = (function () {
 			/*
 				Build the callback function
 			*/
-			var callbackFunction = window[ config.callbacks[ callbackName ] ];
+			var callbackFunction = config.callbacks[ callbackName ];
 			
 			/*
 				Write a debug message stating the callback we are running
