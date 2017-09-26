@@ -1584,6 +1584,10 @@ var AmplitudeCore = function () {
 			reconnectStream();
 		}
 
+		_config2.default.active_song.addEventListener('playing', function () {
+			_helpers2.default.runCallback('playing');
+		});
+
 		/*
   	Play the song and set the playback rate to the playback
   	speed.
