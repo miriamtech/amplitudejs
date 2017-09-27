@@ -1592,7 +1592,17 @@ var AmplitudeCore = function () {
   	Play the song and set the playback rate to the playback
   	speed.
   */
-		_config2.default.active_song.play();
+		var playPromise = _config2.default.active_song.play();
+		if (playPromise !== undefined) {
+			// Browser supports promise-based play() method,
+			// so we can handle errors more gracefully.
+			playPromise.catch(function (error) {
+				console.log(error);
+				stop();
+				_visual2.default.syncMainPlayPause('paused');
+			});
+		}
+
 		_config2.default.active_song.playbackRate = _config2.default.playback_speed;
 
 		/*
